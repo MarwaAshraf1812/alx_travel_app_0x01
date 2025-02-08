@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import environ
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -97,6 +98,10 @@ DATABASES = {
         'PORT': env('DATABASE_PORT'),
     }
 }
+
+CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
 
 
 # Password validation
